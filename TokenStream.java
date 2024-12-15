@@ -1,11 +1,3 @@
-// TokenStream.java
-
-// Implementation of the Scanner for JAY
-
-// This code DOES NOT implement a scanner for JAY yet. You have to complete
-// the code and also make sure it implements a scanner for JAY - not something
-// else.
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -33,13 +25,11 @@ public class TokenStream {
 
         skipWhiteSpace();
 
-        // Handle end of file
         if (isEof) {
             t.setType("EOF");
             return t;
         }
 
-        // Handle comments
         while (nextChar == '/') {
             nextChar = readChar();
             if (nextChar == '/') {
@@ -54,7 +44,6 @@ public class TokenStream {
             }
         }
 
-        // Handle operators
         if (isOperator(nextChar)) {
             t.setType("Operator");
             t.setValue("" + nextChar);
@@ -67,7 +56,6 @@ public class TokenStream {
             return t;
         }
 
-        // Handle separators
         if (isSeparator(nextChar)) {
             t.setType("Separator");
             t.setValue("" + nextChar);
@@ -75,7 +63,6 @@ public class TokenStream {
             return t;
         }
 
-        // Handle identifiers, keywords, and literals
         if (isLetter(nextChar)) {
             StringBuilder sb = new StringBuilder();
             while (isLetter(nextChar) || isDigit(nextChar)) {
@@ -94,7 +81,6 @@ public class TokenStream {
             return t;
         }
 
-        // Handle numeric literals
         if (isDigit(nextChar)) {
             StringBuilder sb = new StringBuilder();
             while (isDigit(nextChar)) {
@@ -106,7 +92,6 @@ public class TokenStream {
             return t;
         }
 
-        // Handle unknown characters
         t.setType("Other");
         t.setValue("" + nextChar);
         nextChar = readChar();
@@ -118,12 +103,12 @@ public class TokenStream {
         try {
             int i = input.read();
             if (i == -1) {
-                isEof = true; // Properly set EOF flag
-                return (char) 0; // Return a null character
+                isEof = true;
+                return (char) 0;
             }
             return (char) i;
         } catch (IOException e) {
-            isEof = true; // On error, mark as EOF
+            isEof = true;
             return (char) 0;
         }
     }
