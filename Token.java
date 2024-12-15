@@ -1,8 +1,7 @@
 public class Token {
 
-    // Token type: Identifier, Keyword, Literal, Separator, Operator, or Other
-    private String type;
-    private String value;
+    private String type; // Token type: Identifier, Keyword, Literal, Separator, Operator, or Other
+    private String value; // Token value
 
     /**
      * Set the value of a Token.
