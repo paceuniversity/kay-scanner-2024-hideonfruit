@@ -1,42 +1,44 @@
 public class Token {
 
-    private String type; // Token type: Identifier, Keyword, Literal, Separator, Operator, or Other
-    private String value; // Token value
+	// Token type
+	// Identifier, Keyword, Literal,
+	// Separator, Operator, or Other
+	private String type;
+	// Token value
+	private String value;
 
-    /**
-     * Set the value of a Token.
-     * @param value Token value
-     */
-    public void setValue(String value) {
-        this.value = value;
-    }
+	/**
+	 * @param value
+	 *            . Set the value of a Token.
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
 
-    /**
-     * Get the value of a Token.
-     * @return Token value
-     */
-    public String getValue() {
-        return value;
-    }
+	/**
+	 * @return Returns the value of a Token.
+	 */
+	public String getValue() {
+		return value;
+	}
 
-    /**
-     * Set the type of a Token.
-     * @param type Token type
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
+	/**
+	 * @param type
+	 *            . Set the type of a Token.
+	 */
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    /**
-     * Get the type of a Token.
-     * @return Token type
-     */
-    public String getType() {
-        return type;
-    }
+	/**
+	 * @return Returns the type of a Token.
+	 */
+	public String getType() {
+		return type;
+	}
 
-    @Override
-    public String toString() {
-        return "Value: " + this.getValue() + " Type: " + this.getType();
-    }
+	public String toString() {
+		return "Value: " + this.getValue() + " " + "Type: " + this.getType();
+	}
+
 }
